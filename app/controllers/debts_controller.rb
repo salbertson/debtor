@@ -1,6 +1,6 @@
 class DebtsController < ApplicationController
   def index
-    @debts = Debt.all
+    @debts = Debt.find(:all, :order => "amount")
   end
 
   def show
