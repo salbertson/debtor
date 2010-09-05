@@ -5,6 +5,10 @@
   <%= stylesheet_link_tag 'scaffold' %>
 </head>
 <body>
+<ul class="navigation">
+  <li><%= link_to "Debts", debts_path %></li>
+  <li><%= link_to "Payments", payments_path %></li>
+</ul>
 <%= yield %>
 </body>
 </html>
