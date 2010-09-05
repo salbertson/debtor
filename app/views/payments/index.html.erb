@@ -8,7 +8,7 @@
 
 <% @payments.each do |payment| %>
   <tr>
-    <td><%=h payment.debt_id %></td>
+    <td><%=h payment.debt.name %></td>
     <td><%=h payment.amount %></td>
     <td><%= link_to 'Show', payment %></td>
     <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
