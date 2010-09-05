@@ -9,10 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100905182553) do
+ActiveRecord::Schema.define(:version => 20100905183850) do
 
   create_table "debts", :force => true do |t|
     t.string   "name"
+    t.decimal  "amount",     :precision => 8, :scale => 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payments", :force => true do |t|
+    t.integer  "debt_id"
     t.decimal  "amount",     :precision => 8, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
