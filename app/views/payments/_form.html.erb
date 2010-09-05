@@ -1,0 +1,15 @@
+<% form_for(@payment) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :debt_id %><br />
+    <%= f.collection_select :debt_id, Debt.find(:all), :id, :name %>
+  </p>
+  <p>
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </p>
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>
