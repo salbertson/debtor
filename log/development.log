@@ -1,0 +1,131 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (3.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDebts (20100905182553)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "debts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "amount" decimal(8,2), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100905182553')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("debts")[0m
+
+
+Processing DebtsController#index (for 127.0.0.1 at 2010-09-05 11:28:27) [GET]
+  [4;36;1mDebt Load (0.4ms)[0m   [0;1mSELECT * FROM "debts" [0m
+Rendering template within layouts/debts
+Rendering debts/index
+Completed in 16ms (View: 12, DB: 0) | 200 OK [http://localhost/debts]
+
+
+Processing DebtsController#new (for 127.0.0.1 at 2010-09-05 11:28:30) [GET]
+Rendering template within layouts/debts
+Rendering debts/new
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://localhost/debts/new]
+
+
+Processing DebtsController#create (for 127.0.0.1 at 2010-09-05 11:28:42) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"TvYtrl23vfiGru/dedKAhT/Gp3wq+fLJp5P0jEzIICs=", "debt"=>{"name"=>"Macy's", "amount"=>"2,300.45"}}
+  [4;35;1mDebt Create (0.4ms)[0m   [0mINSERT INTO "debts" ("name", "created_at", "updated_at", "amount") VALUES('Macy''s', '2010-09-05 18:28:42', '2010-09-05 18:28:42', 2.0)[0m
+Redirected to http://localhost:3000/debts/1
+Completed in 19ms (DB: 0) | 302 Found [http://localhost/debts]
+
+
+Processing DebtsController#show (for 127.0.0.1 at 2010-09-05 11:28:42) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mDebt Load (0.1ms)[0m   [0;1mSELECT * FROM "debts" WHERE ("debts"."id" = 1) [0m
+Rendering template within layouts/debts
+Rendering debts/show
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://localhost/debts/1]
+
+
+Processing DebtsController#edit (for 127.0.0.1 at 2010-09-05 11:28:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mDebt Load (0.1ms)[0m   [0mSELECT * FROM "debts" WHERE ("debts"."id" = 1) [0m
+Rendering template within layouts/debts
+Rendering debts/edit
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/debts/1/edit]
+
+
+Processing DebtsController#update (for 127.0.0.1 at 2010-09-05 11:28:54) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"TvYtrl23vfiGru/dedKAhT/Gp3wq+fLJp5P0jEzIICs=", "id"=>"1", "debt"=>{"name"=>"Macy's", "amount"=>"2234.67"}}
+  [4;36;1mDebt Load (0.2ms)[0m   [0;1mSELECT * FROM "debts" WHERE ("debts"."id" = 1) [0m
+  [4;35;1mDebt Update (0.3ms)[0m   [0mUPDATE "debts" SET "updated_at" = '2010-09-05 18:28:54', "amount" = 2234.67 WHERE "id" = 1[0m
+Redirected to http://localhost:3000/debts/1
+Completed in 11ms (DB: 1) | 302 Found [http://localhost/debts/1]
+
+
+Processing DebtsController#show (for 127.0.0.1 at 2010-09-05 11:28:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mDebt Load (0.2ms)[0m   [0;1mSELECT * FROM "debts" WHERE ("debts"."id" = 1) [0m
+Rendering template within layouts/debts
+Rendering debts/show
+Completed in 6ms (View: 2, DB: 0) | 200 OK [http://localhost/debts/1]
+
+
+Processing DebtsController#show (for 127.0.0.1 at 2010-09-05 11:29:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mDebt Load (0.2ms)[0m   [0mSELECT * FROM "debts" WHERE ("debts"."id" = 1) [0m
+Rendering template within layouts/debts
+Rendering debts/show
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://localhost/debts/1]
+
+
+Processing DebtsController#show (for 127.0.0.1 at 2010-09-05 11:29:32) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mDebt Load (0.1ms)[0m   [0;1mSELECT * FROM "debts" WHERE ("debts"."id" = 1) [0m
+Rendering template within layouts/debts
+Rendering debts/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://localhost/debts/1]
+
+
+Processing DebtsController#index (for 127.0.0.1 at 2010-09-05 11:29:34) [GET]
+  [4;35;1mDebt Load (0.3ms)[0m   [0mSELECT * FROM "debts" [0m
+Rendering template within layouts/debts
+Rendering debts/index
+Completed in 11ms (View: 7, DB: 0) | 200 OK [http://localhost/debts]
+
+
+Processing DebtsController#show (for 127.0.0.1 at 2010-09-05 11:29:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mDebt Load (0.1ms)[0m   [0;1mSELECT * FROM "debts" WHERE ("debts"."id" = 1) [0m
+Rendering template within layouts/debts
+Rendering debts/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://localhost/debts/1]
+
+
+Processing DebtsController#show (for 127.0.0.1 at 2010-09-05 11:30:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mDebt Load (0.1ms)[0m   [0mSELECT * FROM "debts" WHERE ("debts"."id" = 1) [0m
+Rendering template within layouts/debts
+Rendering debts/show
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/debts/1]
+
+
+Processing DebtsController#edit (for 127.0.0.1 at 2010-09-05 11:30:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mDebt Load (0.2ms)[0m   [0;1mSELECT * FROM "debts" WHERE ("debts"."id" = 1) [0m
+Rendering template within layouts/debts
+Rendering debts/edit
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://localhost/debts/1/edit]
+
+
+Processing DebtsController#index (for 127.0.0.1 at 2010-09-05 11:30:44) [GET]
+  [4;35;1mDebt Load (0.3ms)[0m   [0mSELECT * FROM "debts" [0m
+Rendering template within layouts/debts
+Rendering debts/index
+Completed in 11ms (View: 7, DB: 0) | 200 OK [http://localhost/debts]

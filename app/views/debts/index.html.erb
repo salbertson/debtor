@@ -1,0 +1,22 @@
+<h1>Listing debts</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Amount</th>
+  </tr>
+
+<% @debts.each do |debt| %>
+  <tr>
+    <td><%=h debt.name %></td>
+    <td><%=h number_to_currency(debt.amount) %></td>
+    <td><%= link_to 'Show', debt %></td>
+    <td><%= link_to 'Edit', edit_debt_path(debt) %></td>
+    <td><%= link_to 'Destroy', debt, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New debt', new_debt_path %>

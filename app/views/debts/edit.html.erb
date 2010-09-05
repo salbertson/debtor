@@ -1,0 +1,20 @@
+<h1>Editing debt</h1>
+
+<% form_for(@debt) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @debt %> |
+<%= link_to 'Back', debts_path %>
