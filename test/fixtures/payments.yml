@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  debt_id: 1
+  amount: 9.99
+
+two:
+  debt_id: 1
+  amount: 9.99

@@ -150,3 +150,10 @@ Migrating to CreatePayments (20100905183850)
 [0m
   [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("debts")[0m
   [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("payments")[0m
+
+
+Processing PaymentsController#index (for 127.0.0.1 at 2010-09-05 11:41:30) [GET]
+  [4;36;1mPayment Load (0.3ms)[0m   [0;1mSELECT * FROM "payments" [0m
+Rendering template within layouts/payments
+Rendering payments/index
+Completed in 11ms (View: 7, DB: 0) | 200 OK [http://localhost/payments]
