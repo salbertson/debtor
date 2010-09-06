@@ -1,4 +1,6 @@
 class PaymentsController < ApplicationController
+  before_filter :authorize
+
   def index
     @payments = Payment.all.reverse
   end

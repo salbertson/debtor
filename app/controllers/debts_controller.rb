@@ -1,4 +1,6 @@
 class DebtsController < ApplicationController
+  before_filter :authorize
+
   def index
     @debts = Debt.find(:all, :order => "amount")
   end
