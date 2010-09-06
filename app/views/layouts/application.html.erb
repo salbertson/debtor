@@ -5,6 +5,11 @@
   <%= stylesheet_link_tag 'scaffold' %>
 </head>
 <body>
+<% if flash[:notice] %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 <% if admin? %>
   <ul class="navigation">
     <li><%= link_to "Debts", debts_path %></li>
