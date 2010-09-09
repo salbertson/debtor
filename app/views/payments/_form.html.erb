@@ -6,6 +6,10 @@
     <%= f.collection_select :debt_id, Debt.find(:all), :id, :name %>
   </p>
   <p>
+    <%= f.label :date %><br />
+    <%= date_select("payment", "paid_on") %>
+  </p>
+  <p>
     <%= f.label :amount %><br />
     <%= f.text_field :amount %>
   </p>

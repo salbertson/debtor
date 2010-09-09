@@ -3,12 +3,14 @@
 <table>
   <tr>
     <th>Debt</th>
+    <th>Date</th>
     <th>Amount</th>
   </tr>
 
 <% @payments.each do |payment| %>
   <tr>
     <td><%=h payment.debt.name %></td>
+    <td><%=h payment.paid_on %></td>
     <td><%=h number_to_currency(payment.amount) %></td>
     <td><%= link_to 'Show', payment %></td>
     <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
