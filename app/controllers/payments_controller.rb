@@ -2,7 +2,7 @@ class PaymentsController < ApplicationController
   before_filter :authorize
 
   def index
-    @payments = Payment.find(:all, :order => "paid_on")
+    @payments = Payment.find(:all, :order => "paid_on DESC")
   end
 
   def show
