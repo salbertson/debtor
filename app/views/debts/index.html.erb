@@ -11,7 +11,7 @@
   <tr>
     <td><%=h debt.name %></td>
     <td><%=h number_to_currency(debt.amount) %></td>
-    <td><%=h debt_balance(debt) %></td>
+    <td><%=h number_to_currency(debt.balance) %></td>
     <td><%= link_to 'Show', debt %></td>
     <td><%= link_to 'Edit', edit_debt_path(debt) %></td>
     <td><%= link_to 'Destroy', debt, :confirm => 'Are you sure?', :method => :delete %></td>

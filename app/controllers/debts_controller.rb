@@ -2,7 +2,7 @@ class DebtsController < ApplicationController
   before_filter :authorize
 
   def index
-    @debts = Debt.find(:all, :order => "amount")
+    @debts = Debt.find(:all).sort { |a,b| a.balance <=> b.balance }
   end
 
   def show
