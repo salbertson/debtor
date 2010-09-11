@@ -12,7 +12,7 @@ module StatsHelper
   end
 
   def average_monthly_payments
-    (total_payments / days_since_first_payment) * 30
+    total_payments / (days_since_first_payment/30)
   end
 
   def first_payment
