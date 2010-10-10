@@ -1,5 +1,5 @@
 module StatsHelper
-  def total_payments
+  def payment_total
     total = 0
     Payment.find(:all).each do |payment|
       total += payment.amount
@@ -8,19 +8,15 @@ module StatsHelper
   end
 
   def average_payment
-    total_payments / Payment.count
+    payment_total / Payment.count
   end
 
-  def average_monthly_payments
-    total_payments / (days_since_first_payment/30)
+  def average_monthly_payment
+    payment_total / months_of_payments
   end
 
   def first_payment
-    Payment.find(:first, :order => "paid_on DESC")
-  end
-
-  def days_since_first_payment
-    Date.today - first_payment.paid_on
+    Payment.find(:first, :order => "paid_on")
   end
 
   def total_debt_balance
@@ -31,8 +27,15 @@ module StatsHelper
     total
   end
 
-  def days_remaining
-    average_paid_per_day = total_payments / days_since_first_payment
-    (total_debt_balance / average_paid_per_day).to_i
+  def months_remaining
+    total_debt_balance / average_monthly_payment
+  end
+
+  def months_of_payments
+    months = Date.today.month - first_payment.paid_on.month
+    if first_payment.paid_on.year != Date.today.year
+      months += (Date.today.year - first_payment.paid_on.year) * 12
+    end
+    return months
   end
 end

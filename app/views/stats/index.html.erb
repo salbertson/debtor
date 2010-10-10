@@ -1,16 +1,16 @@
 <h1>Stats</h1>
 
-<h2>Days remaining</h2>
-<%= days_remaining %>
+<h2>Months remaining</h2>
+<%= months_remaining.round %>
 
 <h2>Average payment</h2>
 <%= number_to_currency(average_payment) %>
 
-<h2>Average monthly payments</h2>
-<%= number_to_currency(average_monthly_payments) %>
+<h2>Average monthly payment</h2>
+<%= number_to_currency(average_monthly_payment) %>
 
 <h2>Total payments</h2>
-<%= number_to_currency(total_payments) %>
+<%= number_to_currency(payment_total) %>
 
 <h2>Total debt balance</h2>
 <%= number_to_currency(total_debt_balance) %>

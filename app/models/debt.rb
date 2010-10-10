@@ -1,5 +1,5 @@
 class Debt < ActiveRecord::Base
-  has_many :payments
+  has_many :payments, :dependent => :destroy
 
   def balance
     payment_total = 0
