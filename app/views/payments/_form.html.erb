@@ -3,7 +3,7 @@
 
   <p>
     <%= f.label :debt_id %><br />
-    <%= f.collection_select :debt_id, Debt.find(:all), :id, :name %>
+    <%= f.select (:debt_id, Debt.all.collect { |debt| [debt.name, debt.id.to_s] }, :selected => params[:debt]) %>
   </p>
   <p>
     <%= f.label :date %><br />
