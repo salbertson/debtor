@@ -8,6 +8,13 @@ class DebtTest < ActiveSupport::TestCase
     @payment2 = Payment.create(:amount => 10, :debt => @debt)
   end
 
+  test ".balance" do
+    @debt2 = Debt.create(:name => "Macy's", :amount => 200)
+    Payment.create(:amount => 100, :debt => @debt2)
+
+    assert_equal(180, Debt.balance)
+  end
+
   test "#balance" do
     assert @debt.balance == 80
   end

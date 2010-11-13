@@ -1,7 +1,7 @@
 <h1>Stats</h1>
 
 <h2>Months remaining</h2>
-<%= months_remaining.round %>
+<%= (Debt.balance / Payment.average_per_month).round %>
 
 <h2>Average payment</h2>
 <%= number_to_currency(Payment.average) %>
@@ -13,4 +13,4 @@
 <%= number_to_currency(Payment.sum(:amount)) %>
 
 <h2>Total debt balance</h2>
-<%= number_to_currency(total_debt_balance) %>
+<%= number_to_currency(Debt.balance) %>
