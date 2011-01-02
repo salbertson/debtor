@@ -6,7 +6,8 @@ class Payment < ActiveRecord::Base
   end
 
   def self.total_months
-    ((Time.now - first.paid_on.to_time) / 1.month).ceil
+    first_payment = Payment.find(:all, :order => "paid_on").first
+    ((Time.now - first_payment.paid_on.to_time) / 1.month).ceil
   end
 
   def self.average_per_month

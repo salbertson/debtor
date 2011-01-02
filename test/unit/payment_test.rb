@@ -9,9 +9,10 @@ class PaymentTest < ActiveSupport::TestCase
   end
 
   test ".total_months" do
-    Payment.create(:amount => 10, :paid_on => 40.days.ago)
+    Payment.create(:amount => 10, :paid_on => 30.days.ago)
+    Payment.create(:amount => 10, :paid_on => 385.days.ago)
 
-    assert_equal(2, Payment.total_months)
+    assert_equal(13, Payment.total_months)
   end
 
   test ".average_per_month" do
